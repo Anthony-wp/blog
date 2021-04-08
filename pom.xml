@@ -86,6 +86,15 @@
       <version>8.0.23</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jdbc -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jdbc</artifactId>
+      <version>2.1.7</version>
+    </dependency>
+
+
+
   </dependencies>
 
   <build>
