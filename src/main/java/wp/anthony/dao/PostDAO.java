@@ -31,8 +31,6 @@ public class PostDAO {
                 Post post = new Post();
 
                 post.setId(resultSet.getInt("id"));
-                System.out.println(resultSet.getInt("id"));
-                System.out.println(resultSet.getString("title"));
                 post.setTitle(resultSet.getString("title"));
                 post.setAnons(resultSet.getString("anons"));
                 post.setFull_text(resultSet.getString("full_text"));
@@ -45,7 +43,6 @@ public class PostDAO {
             throwables.printStackTrace();
         }
 
-        System.out.println(posts);
         return posts;
     }
 
