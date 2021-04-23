@@ -30,7 +30,7 @@ public class PostDAO {
                 post.setId(resultSet.getInt("id"));
                 post.setTitle(resultSet.getString("title"));
                 post.setAnons(resultSet.getString("anons"));
-                post.setFull_text(resultSet.getString("full_text"));
+                post.setFullText(resultSet.getString("full_text"));
                 post.setTheme(resultSet.getString("theme"));
                 post.setViews(resultSet.getInt("views"));
 
@@ -58,7 +58,7 @@ public class PostDAO {
                 post.setId(resultSet.getInt("id"));
                 post.setTitle(resultSet.getString("title"));
                 post.setAnons(resultSet.getString("anons"));
-                post.setFull_text(resultSet.getString("full_text"));
+                post.setFullText(resultSet.getString("full_text"));
                 post.setTheme(resultSet.getString("theme"));
                 post.setViews(resultSet.getInt("views"));
 
