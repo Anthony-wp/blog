@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add new post</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div th:insert="blocks/header :: header"></div>
+</div>
+
+<div class="container mt-5 mb-5">
+  <h1>Add new Post</h1>
+  <form th:method="POST" th:action="@{/}" th:object="${post}">
+    <input type="text" th:field="*{title}" id="title" placeholder="Input title" class="form-control"/>
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
+    <br>
+    <input type="text" th:field="*{anons}" id="anons" placeholder="Input anons" class="form-control">
+    <div style="color:red" th:if="${#fields.hasErrors('anons')}" th:errors="*{anons}">Error</div>
+    <br>
+    <textarea th:field="*{fullText}" id="fullText" placeholder="Input text" class="form-control"></textarea>
+    <div style="color:red" th:if="${#fields.hasErrors('fullText')}" th:errors="*{fullText}">Error</div>
+    <br>
+    <select th:field="*{theme}" id="theme" class="form-select">
+      <option th:value="Other" th:text="Other"></option>
+      <option th:value="World" th:text="World"></option>
+      <option th:value="Technology" th:text="Technology"></option>
+      <option th:value="Design" th:text="Design"></option>
+      <option th:value="Business" th:text="Business"></option>
+      <option th:value="Politics" th:text="Politics"></option>
+      <option th:value="Opinion" th:text="Opinion"></option>
+      <option th:value="Opinion" th:text="Opinion"></option>
+      <option th:value="Science" th:text="Science"></option>
+      <option th:value="Health" th:text="Health"></option>
+      <option th:value="Style" th:text="Style"></option>
+      <option th:value="Travel" th:text="Travel"></option>
+    </select>
+    <br/>
+    <br/>
+<!--    <button type="submit" class="btn btn-success">Add</button>-->
+    <input type="submit" class="btn btn-success" value="Create!"/>
+  </form>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

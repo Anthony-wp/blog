@@ -73,5 +73,23 @@ public class PostDAO {
 
     }
 
+    public void save(Post post) {
+        try {
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("INSERT INTO Post VALUES(?, ?, ?, ?, ?, 0)");
+
+            preparedStatement.setInt(1, post.getId());
+            preparedStatement.setString(2, post.getTitle());
+            preparedStatement.setString(3, post.getAnons());
+            preparedStatement.setString(4, post.getFullText());
+            preparedStatement.setString(5, post.getTheme());
+
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 
 }

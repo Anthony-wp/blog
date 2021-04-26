@@ -4,15 +4,40 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Post {
     private int id;
+    private static int countPosts = 2;
+
+    @NotEmpty(message = "Title should not be empty")
+    @Size(min = 2, max = 500, message = "Title should be between 2 and 500 characters")
     private String title;
+
+    @NotEmpty(message = "Anons should not be empty")
+    @Size(min = 10, max = 2000, message = "Anons should be between 10 and 2000 characters")
     private String anons;
+
+    @NotEmpty(message = "Text should not be empty")
+    @Size(min = 10, max = 10000, message = "Anons should be between 10 and 10000 characters")
     private String fullText;
-    private Object theme;
+
+    private String theme;
     private Integer views;
+
+    public Post() {
+    }
+
+    public Post(int id, String title, String anons, String fullText, String theme) {
+        this.id = countPosts++;
+        this.title = title;
+        this.anons = anons;
+        this.fullText = fullText;
+        this.theme = theme;
+
+    }
 
     @Id
     @Column(name = "id", nullable = false)
@@ -56,11 +81,11 @@ public class Post {
 
     @Basic
     @Column(name = "theme", nullable = true)
-    public Object getTheme() {
+    public String getTheme() {
         return theme;
     }
 
-    public void setTheme(Object theme) {
+    public void setTheme(String theme) {
         this.theme = theme;
     }
 
